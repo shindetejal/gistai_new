@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>Video with markers</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="css/video-js.min.css"/>
+    <link rel="stylesheet" href="css/videojs.markers.min.css"/>
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/video.min.js"></script>
+    <script src="js/videojs-markers.min.js"></script>
+    <style type="text/css">
+      
+    .PlayerBarBox {
+        width: 50%;
+        height: 15px;
+        position: absolute;
+        /*bottom: -45px;*/
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    .seekbar {
+    width: 100%;
+    height: 15px;
+    position: relative;
+    background: #7c848a57;
+    border-radius: 5px;
+    }
+    .seekbar .controller {
+    width: 100%;
+    height: 15px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+}
+#TimeMarker {
+    position: absolute;
+    bottom: 20px;
+}
+.tooltiptext {
+    width: 80px;
+    background-color: #126db3b5;
+    color: #fff;
+    text-align: center;
+    border-radius: 13px;
+    padding: 2px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%;
+    right: -40px;
+    font-size: 12px;
+}
+.seekbar .fill {
+    /* width: 0px; */
+    height: 15px;
+    /* position: absolute; */
+    left: 0px;
+    /* top: 0px; */
+    /* background: #673ab7c9; */
+    border-radius: 5px 0px 0px 5px;
+}
+.seekbar .anchormarker {
+    width: 10px;
+    height: 15px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border-radius: 0px;
+    background: #E91E63;
+    z-index: 11;
+}
+.tp-ruler {
+    width: 100%;
+    height: 1px;
+    position: relative;
+    background: #3f51b591;
+    bottom: -27px;
+}
+.tp-ruler .linestart {
+    width: 2px;
+    height: 13px;
+    background: #3f51b591;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+.tp-ruler .lineend {
+    width: 2px;
+    height: 13px;
+    background: #3f51b591;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+.tp-ruler #start-tick {
+    position: absolute;
+    font-size: .8em;
+    left: 0;
+}
+.tp-ruler #end-tick {
+    position: absolute;
+    font-size: .8em;
+    right: 0;
+}
+.leftset {
+    float: left;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-ml-6">
+          <video 
+            id="example_video_1" 
+            class="video-js vjs-default-skin"
+            controls 
+            preload="auto" 
+            autoplay
+            width="640" 
+            height="360"
+            style="margin: 10px;"
+            data-setup='{"width": 640, "height": 360}'>
+               <source src="videos/BigBuckBunny_320x180.mp4" type='video/mp4' />
+          </video>  
+
+            <div class="PlayerBarBox">
+                    <div class="seekbar">
+                      <div class="controller playing"></div>
+                      <div id="TimeMarker" style="left: 17.557%;"><div class="tooltiptext">06:17</div></div>
+                      <div class="fill" style="display: none; width: 17.557%;"></div>
+                      <div class="contentMarker" style="display: none;"></div>
+                    <div class="anchormarker" data-time="387.00" style="left:17.977423700469153%"></div><div class="anchormarker" data-time="518.00" style="left:24.06280484972357%"></div><div class="anchormarker" data-time="870.00" style="left:40.414363357643836%"></div><div class="anchormarker" data-time="1116.00" style="left:51.841872996701746%"></div><div class="anchormarker" data-time="1356.00" style="left:62.990662888465565%"></div><div class="anchormarker" data-time="1465.00" style="left:68.05407163097496%"></div><div class="anchormarker" data-time="1519.00" style="left:70.56254935662182%"></div><div class="anchormarker" data-time="1762.00" style="left:81.85069912203268%"></div><div class="anchormarker" data-time="2003.00" style="left:93.04594230501219%"></div></div>
+
+                    <div class="tp-ruler">
+                      <div class="linestart"></div>
+                      <div class="lineend"></div>
+                      <div id="start-tick" class="tp-ruler-tick-text">0:00</div>
+                      <div id="end-tick" class="tp-ruler-tick-text">35:52</div>
+                    </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- <script type="text/javascript">
+      // load video object
+      var video = videojs('example_video_1');
+
+      console.log(video);
+      //load markers
+      video.markers({
+        markers: [
+          {time: 9.5, text: "this"},
+          {time: 150,  text: "is"},
+          {time: 250,text: "so"},
+          {time: 370,  text: "cool"}
+        ]
+      });
+    </script> -->
+  </body>
+</html>
